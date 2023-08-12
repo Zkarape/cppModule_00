@@ -2,5 +2,9 @@
 
 class PhoneBook
 {
-    Contact conts[8];
+	public:
+    	Contact contacts[8];
+		PhoneBook();
+		~PhoneBook();
+		void	addContact();
 };
