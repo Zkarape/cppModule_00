@@ -62,44 +62,33 @@ void printColumn(std::string &str)
     }
 }
 
-int getIndex()
+void getIndex(Contact cont[8])
 {
     std::stringstream   ss;
     int                 idx;
     std::string         index;
 
     idx = -1;
-    std::cout << "Input index of the contact to display\n";
+    std::cout << "\nInput index of the contact to display\n";
     std::cin >> index;
     ss << index;
     ss >> idx;
-    if (idx < 1 || idx > 8)
-    {
-        std::cout << "Index is out of range\n";
-        return (-1);
-    }
-    return (idx);
+    if (idx >= 0 && idx <= 8 && ss.fail() == false)
+        cont[idx].printContact();
+    else
+        std::cout << "Something is wrong with index\n";
 }
 
 void PhoneBook::searchContact()
 {
-    // if (index[0] < '1' || index > 8)
-    // {
-    //     std::cout << "Wrong index\n";
-    //     return ;
-    // }
-    int index;
-
-    index = getIndex();
-    std::cout << "  index   "
+    std::cout << std::right << std::setw(10) << "index"
               << "|"
-              << "first name"
+              << std::right << std::setw(10) << "first name"
               << "|"
-              << "last name "
+              << std::right << std::setw(10) << "last name "
               << "|"
-              << " nickname " << std::endl;
-    printColumn(contacts[index]);
-    // std::cout << std::right << "hfejbnjcnjenf\nkjfbnjcrnej\n";
+              << std::right << std::setw(10) << "nickname" << std::endl;
+    getIndex(this->contacts);
 }
 
 PhoneBook::~PhoneBook() {}
