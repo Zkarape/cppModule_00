@@ -3,14 +3,18 @@
 int main()
 {
 	PhoneBook	phonebook = PhoneBook();
-	const std::string s;
+	std::string s;
 
-	// std::cout << "Enter one of three commands:  ADD, SEARCH and EXIT" << std::endl;
-	// std::cin >> s;
-	// if (strcmp(s, "ADD") == 0)
-	// {
-	// 	//ADD
-	// }
+	std::cout << "Enter one of three commands:  ADD, SEARCH and EXIT" << std::endl;
+	std::cin >> s;
+	if (s.compare("ADD") == 0)
+	{
+		phonebook.addContact();
+	}
+	else if (s.compare("SEARCH") == 0)
+	{
+		phonebook.searchContact();
+	}
 	// if (strcmp(s, "SEARCH") == 0)
 	// {
 	// 	//SEARCH
