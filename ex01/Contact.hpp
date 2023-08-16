@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+#include <iomanip>
+#include <sstream>
 
 class Contact
 {

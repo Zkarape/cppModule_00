@@ -16,8 +16,8 @@ void PhoneBook::addContact()
     std::string nickname;
     std::string phoneNumber;
     std::string darkestSecret;
-    static int  k = -1;
-    int         flag = 0;
+    static int k = -1;
+    int flag = 0;
 
     std::cout << "Input first name for contact";
     std::cin >> firstName;
@@ -43,7 +43,7 @@ void PhoneBook::addContact()
     if (flag == 1)
     {
         std::cout << "Some inputs are empty for contact";
-        return ;
+        return;
     }
     k++;
     if (k == 8)
@@ -51,39 +51,54 @@ void PhoneBook::addContact()
     this->contacts[k] = Contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
 }
 
-void    printColumn(std::string &str) const
+void printColumn(std::string &str)
 {
     if (str.length() <= 10)
         std::cout << std::right << std::setw(10) << str;
     else
     {
-        str =  str.substr(0,9) + ".";
+        str = str.substr(0, 9) + ".";
         std::cout << std::right << std::setw(10) << str;
     }
 }
 
-int    indexCheck(std::string &index)
+int getIndex()
 {
     std::stringstream   ss;
     int                 idx;
+    std::string         index;
 
-
-}
-
-void    PhoneBook::searchContact()
-{
-    std::string index;
-
+    idx = -1;
     std::cout << "Input index of the contact to display\n";
     std::cin >> index;
-    indexCheck(index);
-    if (index[0] < '1' || index > 8)
+    ss << index;
+    ss >> idx;
+    if (idx < 1 || idx > 8)
     {
-        std::cout << "Wrong index\n";
-        return ;
+        std::cout << "Index is out of range\n";
+        return (-1);
     }
-    std::cout << "  index   " << "|" << "first name" << "|" << "last name " << "|" << " nickname " << std::endl;
-    printColumn(contact[index].);
+    return (idx);
+}
+
+void PhoneBook::searchContact()
+{
+    // if (index[0] < '1' || index > 8)
+    // {
+    //     std::cout << "Wrong index\n";
+    //     return ;
+    // }
+    int index;
+
+    index = getIndex();
+    std::cout << "  index   "
+              << "|"
+              << "first name"
+              << "|"
+              << "last name "
+              << "|"
+              << " nickname " << std::endl;
+    printColumn(contacts[index]);
     // std::cout << std::right << "hfejbnjcnjenf\nkjfbnjcrnej\n";
 }
 
