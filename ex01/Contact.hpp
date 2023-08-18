@@ -9,17 +9,22 @@
 
 class Contact
 {
-	private:
-		std::string	_firstName;
-		std::string	_lastName;
-		std::string	_nickName;
-		std::string	_phoneNumber;
-		std::string	_darkestSecret;
-	public:
-		Contact();
-		Contact(const std::string&, const std::string&, const std::string&, const std::string&, const std::string&);
-		~Contact();
-		void	printContact() const;
+private:
+	std::string	_index;
+	std::string _firstName;
+	std::string _lastName;
+	std::string _nickname;
+	std::string _phoneNumber;
+	std::string _darkestSecret;
+
+public:
+	Contact();
+	Contact(const std::string &, const std::string &, const std::string &, const std::string &, const std::string &);
+	~Contact();
+	void printContact();
+	void	setIndex(std::string &s);
 };
+
+void	printColumn(std::string &str);
 
 #endif

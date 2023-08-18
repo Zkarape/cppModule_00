@@ -1,4 +1,4 @@
-NAME      = megaphone
+NAME      = phonebook
 
 CC        = g++ 
 
@@ -17,9 +17,11 @@ $(NAME): $(OBJ_FILES)
 		$(CC) $(FLAGS) -o $(NAME) $^
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJ_FILES)
 
 fclean: clean
 	rm -rf $(NAME)
+
+re: fclean all
 
 .PHONY: all fclean clean re

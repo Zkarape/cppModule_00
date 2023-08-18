@@ -2,16 +2,16 @@
 # define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#define SIZE 2
 
 class PhoneBook
 {
 	public:
-    	Contact contacts[8];
+    	Contact _contacts[SIZE];
 		PhoneBook();
 		~PhoneBook();
 		void	addContact();
 		void	searchContact();
-		void	printColumn(std::string &) const;
 };
 
 #endif
